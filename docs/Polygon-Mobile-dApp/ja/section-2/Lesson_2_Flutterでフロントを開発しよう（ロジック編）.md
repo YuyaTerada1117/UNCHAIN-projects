@@ -136,7 +136,7 @@ Ganacheから任意のアカウントの秘密鍵を設定する（Ganache UIで
 
   //秘密鍵を渡して`Credentials`クラスのインスタンスを生成する。
   Future<void> getCredentials() async {
-    _credentials = await _client!.credentialsFromPrivateKey(_privateKey);
+    _credentials = await EthPrivateKey.fromHex(_privateKey);
     _ownAddress = await _credentials!.extractAddress();
   }
 
@@ -197,7 +197,7 @@ Ganacheから任意のアカウントの秘密鍵を設定する（Ganache UIで
 ```dart
 //TodoListModel.dart
   Future<void> getCredentials() async {
-    _credentials = await _client!.credentialsFromPrivateKey(_privateKey);
+    _credentials = await EthPrivateKey.fromHex(_privateKey);
     _ownAddress = await _credentials!.extractAddress();
   }
 ```
